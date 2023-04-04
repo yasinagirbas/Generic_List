@@ -41,8 +41,87 @@
 
             SayiListesi.Remove(3);
             RenkListesi.Remove("yeşil");
+            
+            SayiListesi.RemoveAt(0);
+            RenkListesi.RemoveAt(1);
+            
+            SayiListesi.ForEach(sayi=> Console.WriteLine(sayi));
+            RenkListesi.ForEach(renk=>Console.WriteLine(renk));
+            
+            //liste içerisinde arama 
+            if (SayiListesi.Contains(10))
+                Console.WriteLine("10 liste iççersinde");
+            
+            //eleman ile index'e erişme 
+            RenkListesi.BinarySearch("sarı");
+            Console.WriteLine(RenkListesi.BinarySearch("kırmızı"));
+            
+            //diziyi list'e çevirme 
+            string[] hayvanlar = {'kedi', 'köpek', 'fare'};
+            List<string> hayvanlistesi = new List<string>(hayvanlar);
+            
+            //listeyi nasıl temizleriz 
+            hayvanlistesi.Clear();
+            
+            //List içerisinde nesne tutmak.
+            List<Kullanıcılar> kullanıcılarListesi = new List<Kullanıcılar>();
+            Kullanıcılar kullanıcı1 = new Kullanıcılar();
+            kullanıcı1.Isim = "Ayse";
+            kullanıcı1.Soyisim = "hakan";
+            kullanıcı1.Yas = 13;
+            
+            Kullanıcılar kullanıcı2 = new Kullanıcılar();
+            kullanıcı2.Isim = "hakan0";
+            kullanıcı2.Soyisim = "hakkı";
+            kullanıcı2.Yas = 50;
+            
+            kullanıcılarListesi.Add(kullanıcı1);
+            kullanıcılarListesi.Add(kullanıcı2);
+            
+            List<Kullanıcılar> yeniliste = new List<Kullanıcılar>();
+            yeniliste.Add(new Kullanıcılar()
+            {
+                Isim = "hakan",
+                Soyisim = "arda",
+                Yas = 25
+            });
+
+            foreach (var Kullanici  in kullanıcılarListesi)
+            {
+                Console.WriteLine("Kullanıcı Adı:"+Kullanici.Isim);
+                Console.WriteLine("Kullanıcı soyadı:" + Kullanici.Soyisim);
+                Console.WriteLine("Yaş:"+Kullanici.Yas);
+            }
+                yeniliste.Clear();
+
+
 
         }
     }
-    
+    public class Kullanıcılar
+    {
+         private string isim;
+         private string soyisim;
+         private int yas;
+         
+         public  string Isim
+         {
+             get => isim;
+             set => isim = value;
+         }
+
+         public string Soyisim
+         {
+             get => soyisim;
+             set => soyisim = value;
+         }
+
+         public int Yas
+         {
+             get => yas;
+             set => yas = value;
+
+         }
+         
+    }
 }
